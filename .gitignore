@@ -1,3 +1,12 @@
+# Local-only project notes — not tracked
+CLAUDE.md
+
+# Project data (raw CSVs, downloads, model pickles) — never commit data
+/data
+*.csv
+*.zip
+*.pkl
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -147,10 +156,11 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Environments (all virtualenvs — uv's .venv, the py3.11 training-stack .venv311, etc.)
 .env
 .envrc
 .venv
+.venv*/
 env/
 venv/
 ENV/
@@ -216,3 +226,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- DelayCast app deploy: ship precomputed assets + champion pickle ---
+# The Streamlit app must run on Community Cloud with no Azure access, so these small
+# committed assets override the broad *.csv / *.pkl / /data ignores above.
+# NOTE: gitignore does NOT support trailing inline comments — keep comments on their
+# own line, or the comment becomes part of the pattern and the ignore silently fails.
+# local full-parquet download used only by precompute_assets.py (.venv311 is covered above)
+data_tmp/
+!app/_data/
+!app/_data/**
+!app/_model/
+!app/_model/**

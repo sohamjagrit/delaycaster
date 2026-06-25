@@ -1,0 +1,18 @@
+$schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
+name: delaycaster_lake
+type: azure_data_lake_gen2
+description: >-
+  Points AzureML at the SAME ADLS Gen2 the Databricks pipeline writes to, so the
+  training job reads features/train_parquet directly with no data movement.
+account_name: delaycasterdata
+filesystem: data
+# Auth: identity-based (no secret in the repo). The AzureML workspace's managed
+# identity (and your az-login identity) must have "Storage Blob Data Reader" on the
+# delaycasterdata account. Grant it once with:
+#   az role assignment create --assignee <workspace-or-user-objectId> \
+#     --role "Storage Blob Data Reader" \
+#     --scope /subscriptions/<sub>/resourceGroups/delaycaster-rg/providers/Microsoft.Storage/storageAccounts/delaycasterdata
+#
+# Account-key fallback (simplest, but puts a secret here — don't commit a real key):
+# credentials:
+#   account_key: <storage-key>

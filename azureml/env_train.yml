@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: delaycast-train
+description: Training env for DelayCast — sklearn / xgboost / lightgbm + mlflow.
+image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+conda_file: conda_train.yml

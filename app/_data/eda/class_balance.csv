@@ -1,0 +1,3 @@
+delayed,count,label,share
+0,16166825,On time (≤15 min),0.7987300514182787
+1,4073837,Delayed (>15 min),0.2012699485817213
