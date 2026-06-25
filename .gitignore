@@ -1,5 +1,6 @@
-# Local-only project notes — not tracked
+# Local-only project notes / tooling — not tracked
 CLAUDE.md
+.claude/
 
 # Project data (raw CSVs, downloads, model pickles) — never commit data
 /data
@@ -238,3 +239,6 @@ data_tmp/
 !app/_data/**
 !app/_model/
 !app/_model/**
+
+
+docs/tuning_report.md
